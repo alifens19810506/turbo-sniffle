@@ -1,5 +1,6 @@
 import React from 'react';
 import { Slide } from '../types/slide';
+import { slideImages } from '../data/slideImages';
 
 interface ConclusionSlideProps {
   slide: Slide;
@@ -9,10 +10,18 @@ export const ConclusionSlide: React.FC<ConclusionSlideProps> = ({ slide }) => {
   return (
     <div className="h-full overflow-y-auto py-8">
       <div className="max-w-5xl mx-auto px-6 animate-fadeIn">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {slide.title}
           </h2>
+        </div>
+
+        <div className="mb-6">
+          <img
+            src={slideImages.conclusion.url}
+            alt={slideImages.conclusion.alt}
+            className="w-full max-w-3xl mx-auto rounded-xl shadow-xl"
+          />
         </div>
 
         <div className="bg-gradient-to-br from-white to-blue-50 rounded-2xl p-8 shadow-2xl">

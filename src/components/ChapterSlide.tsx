@@ -1,15 +1,35 @@
 import React from 'react';
 import { Slide } from '../types/slide';
+import { slideImages } from '../data/slideImages';
 
 interface ChapterSlideProps {
   slide: Slide;
 }
 
 export const ChapterSlide: React.FC<ChapterSlideProps> = ({ slide }) => {
+  const getImageForSlide = () => {
+    switch (slide.id) {
+      case 1:
+        return slideImages.challenge;
+      case 2:
+        return slideImages.dataOnline;
+      case 3:
+        return slideImages.processIntelligence;
+      case 4:
+        return slideImages.dataDriven;
+      case 5:
+        return slideImages.futurePlanning;
+      default:
+        return null;
+    }
+  };
+
+  const slideImage = getImageForSlide();
+
   return (
     <div className="h-full overflow-y-auto py-8">
       <div className="max-w-6xl mx-auto px-6 animate-fadeIn">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
             {slide.title}
           </h2>
@@ -19,6 +39,16 @@ export const ChapterSlide: React.FC<ChapterSlideProps> = ({ slide }) => {
             </p>
           )}
         </div>
+
+        {slideImage && (
+          <div className="mb-6">
+            <img
+              src={slideImage.url}
+              alt={slideImage.alt}
+              className="w-full max-w-3xl mx-auto rounded-xl shadow-xl"
+            />
+          </div>
+        )}
 
         <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
           {slide.content.headings && slide.content.headings.length > 0 && (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Slide } from '../types/slide';
+import { slideImages } from '../data/slideImages';
 
 interface IntroSlideProps {
   slide: Slide;
@@ -7,8 +8,15 @@ interface IntroSlideProps {
 
 export const IntroSlide: React.FC<IntroSlideProps> = ({ slide }) => {
   return (
-    <div className="flex flex-col items-center justify-center h-full text-center">
-      <div className="animate-fadeIn">
+    <div className="flex flex-col items-center justify-center h-full text-center px-4">
+      <div className="animate-fadeIn max-w-7xl mx-auto">
+        <div className="mb-8">
+          <img
+            src={slideImages.intro.url}
+            alt={slideImages.intro.alt}
+            className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
+          />
+        </div>
         <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6">
           {slide.title}
         </h1>
